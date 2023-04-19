@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: todoapp
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: todoapp
   ports:
   - port: 80
     protocol: TCP
     targetPort: 8888
-
+  externalTrafficPolicy: Local
