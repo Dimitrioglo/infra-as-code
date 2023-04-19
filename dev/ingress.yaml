@@ -4,7 +4,12 @@ metadata:
   name: kubernetes-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
+  tls:
+  - hosts:
+    - joint.software
+    secretName: todoapp-kubernetes-tls
   rules:
   - host: "joint.software"
     http:
